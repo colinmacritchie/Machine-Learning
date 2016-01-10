@@ -56,4 +56,18 @@ print (msOos[-1])
 
 trees in ensemble
 plot.plot(nTreeList, mseOos)
-plot.xLabel
+plot.xLabel("Number of trees in ensemble")
+plot.ylabel("mean squared error")
+plot.show()
+
+featureImportance = wineRFModel.feature_importances_
+featureImportance = featureImportance / featureImportance.max()
+sorted_idx = numpy.argsort(featureImportance)
+barPos = numpy.arange(sorted_idx.shape[0])
+    +.5
+plot.barh(barPos, featureImportance[sorted_idx],
+        align='center')
+plot.yticks(barPos, wineNames[sorted_idx])
+ploy.xlabel('Variable Importance')
+plot.show()
+
