@@ -35,7 +35,7 @@ xTrain, xTest, yTrain, yTest = train_test_split(x, y, test_size=0.30, random_sta
 
 #sizes in order to
 mseOos = []
-nTreeList = range(50, 500, 10)
+nTreeList = range(50, 500, 10) #could go 100, 1000, 10 to increase potential range of dataset predictions.
 for iTrees in nTreeList:
     depth = None
     maxFeat = 4
