@@ -6,9 +6,8 @@ from sklearn.metrics import mean_squared_error
 import pylab as plot
 
 # Read wine quality data from UCI website
-target_url = ("http://archive.ics.uci.edu/ml/machine-learning-
-                databases/wine-quality/winequality-red.csv")
-data - urllib2.urlopen(target_url)
+target_url = ("http://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv")
+data = urllib2.urlopen(target_url)
 
 xList = []
 labels = []
@@ -32,11 +31,9 @@ x = numpy.array(xList)
 y = numpy.array(labels)
 wineNames = numpy.array(names)
 
-xTrain, xTest, yTrain, yTest =
-train_test_split(X, y, test_size=0.30,
-    random_state=531)
+xTrain, xTest, yTrain, yTest = train_test_split(x, y, test_size=0.30, random_state=531)
 
-sizes in order to
+#sizes in order to
 mseOos = []
 nTreeList = range(50, 500, 10)
 for iTrees in nTreeList:
@@ -64,7 +61,7 @@ featureImportance = wineRFModel.feature_importances_
 featureImportance = featureImportance / featureImportance.max()
 sorted_idx = numpy.argsort(featureImportance)
 barPos = numpy.arange(sorted_idx.shape[0])
-    +.5
++.5
 plot.barh(barPos, featureImportance[sorted_idx],
         align='center')
 plot.yticks(barPos, wineNames[sorted_idx])
